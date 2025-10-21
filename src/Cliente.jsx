@@ -11,7 +11,7 @@ export default function Clientes() {
     async function carregarClientes() {
       setCarregando(true);
       try {
-        const resp = await fetch("http://localhost:8080/clientes");
+        const resp = await fetch("https://cinema-aula.onrender.com/clientes");
         if (!resp.ok) throw new Error("Erro ao buscar clientes");
         const data = await resp.json();
         setClientes(data);
@@ -29,7 +29,7 @@ export default function Clientes() {
     e.preventDefault();
     setErro("");
     try {
-      const resp = await fetch("http://localhost:8080/clientes", {
+      const resp = await fetch("https://cinema-aula.onrender.com/clientes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(novoCliente),
